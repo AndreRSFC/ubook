@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Ubook",
+  "name": "Ubook seu aplicativo de contatos favorito",
+  "description": "Gerencie suas listas de contato é crie quantas você quiser",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,18 +9,33 @@
       "type": "image/x-icon"
     },
     {
+      "src": "logo48.png",
+      "type": "image/png",
+      "sizes": "48x48",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo72.png",
+      "type": "image/png",
+      "sizes": "72x72",
+      "purpose": "any maskable"
+    },
+    {
       "src": "logo192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "start_url": "http://localhost:3000/",
+  "display": "minimal-ui",
+  "background_color":"#663399",
+  "theme_color":"#663399",
+  "lang": "pt-br"
 }
