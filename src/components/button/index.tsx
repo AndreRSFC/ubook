@@ -2,8 +2,6 @@ import React from "react";
 
 import styles from "./index.module.scss";
 
-// import Load from "../load";
-
 type PropsType = {
   text: string;
   onClick: () => void;
@@ -12,13 +10,7 @@ type PropsType = {
   disabled?: boolean;
 };
 
-const Button = ({
-  text,
-  onClick,
-  icon,
-  disabled,
-  className,
-}: PropsType) => {
+const Button = ({ text, onClick, icon, disabled, className }: PropsType) => {
   return (
     <button
       className={`${styles.button} ${className || ""}`}
