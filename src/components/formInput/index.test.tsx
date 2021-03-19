@@ -11,7 +11,7 @@ describe("Input", () => {
   }: {
     onChange?: () => React.ChangeEvent<HTMLInputElement>;
   }) => {
-    const [CPF, setCPF] = useState<{ value: string; error: boolean }>({
+    const [name, setName] = useState<{ value: string; error: boolean }>({
       value: "",
       error: false,
     });
@@ -21,13 +21,13 @@ describe("Input", () => {
         placeholder={"Nome"}
         label="Nome"
         id="nome"
-        value={CPF.value}
-        onBlur={() => setCPF({ ...CPF, error: CPF.value !== "" })}
-        onChange={(e: any) => {
-          setCPF(e.target.value);
+        value={name.value}
+        onBlur={() => setName({ ...name, error: name.value !== "" })}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          setName({ value: e.target.value, error: e.target.value !== "" });
           onChange && onChange();
         }}
-        isError={CPF.error}
+        isError={name.error}
         errorMessage="Insira um número de CPF válido"
       />
     );
