@@ -1,0 +1,65 @@
+@import "../../sass/variables.scss";
+
+.input {
+  border: 1px solid $color-gray-2;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 7px 10px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 4px;
+}
+
+.input::placeholder {
+  font-family: $font-roboto;
+}
+
+.input,
+.input::placeholder,
+.input_label {
+  font-size: 14px;
+  color: $color-gray-6;
+}
+
+.input_label {
+  color: $color-gray-6;
+  font-weight: $font-regular;
+}
+
+.input_errorMessage {
+  color: $color-pink-2;
+  display: none;
+}
+
+.input_label.is_on {
+  opacity: 1;
+}
+
+.input_container.is_error {
+  .input_label {
+    color: $color-pink-2;
+  }
+
+  .input {
+    border-color: $color-pink-2;
+  }
+
+  .input_errorMessage {
+    display: block;
+    font-size: 12px;
+    margin-left: 14px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .input_container__expirationDate {
+    .input_label {
+      max-width: 115px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
