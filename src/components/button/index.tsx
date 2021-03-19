@@ -13,7 +13,7 @@ type PropsType = {
 const Button = ({ text, onClick, icon, disabled, className }: PropsType) => {
   return (
     <button
-      className={`${styles.button} ${className || ""}`}
+      className={`${styles.button} ${className ? className : ""}`}
       disabled={disabled}
       onClick={onClick}
       aria-label={text}
