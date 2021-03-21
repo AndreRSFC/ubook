@@ -17,12 +17,13 @@ const Header = ({ emptyList }: Propstype) => {
     <header className={styles.header}>
       <UBookIcon />
       {emptyList ? (
-        <div className={styles.header_buttonSpace}/>
+        <div className={styles.header_buttonSpace} />
       ) : (
         <Button
           text="Criar contato"
           icon={<PlusIcon />}
           onClick={() => alert("Criar contato")}
+          className={styles.header_buttonSpace}
         />
       )}
       <SearchInput
