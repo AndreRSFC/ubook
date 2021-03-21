@@ -1,0 +1,87 @@
+@import "../../../sass/variables.scss";
+
+.table {
+  border-collapse: collapse;
+  font-family: $font-roboto;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 32px;
+  border-radius: 20px;
+  background-color: red;
+}
+
+.table_headLine,
+.table_bodyLine {
+  background-color: $color-white;
+  border: 1px solid $color-gray-3;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.table_headLine {
+  color: $color-gray-5;
+  font-size: 13px;
+  font-weight: $font-regular;
+}
+
+.table_headLineItem {
+  padding: 12px;
+  font-weight: $font-regular;
+}
+
+.table_bodyLine {
+  color: $color-gray-6;
+  font-size: 14px;
+  font-weight: $font-regular;
+}
+
+.table_bodyLine:hover {
+  background-color: $color-pink-1;
+}
+
+.table_bodyLineItem {
+  padding: 8px;
+}
+
+.table_retreat {
+  padding-left: 42px;
+}
+
+.table_icons {
+  width: 16px;
+  padding: 8px 0;
+}
+
+.table_icons__last {
+  padding: 0 8px 0 16px;
+}
+
+.table_circleName {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 0;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #fff;
+}
+
+.table_contactLine {
+  display: flex;
+  align-items: center;
+}
+
+
+// table tr:first-child th:first-child,
+// table.Info tr:first-child td:first-child {
+//     border-top-left-radius: 10px;
+// }
+
+// /* top-right border-radius */
+// table tr:first-child th:last-child,
+// table.Info tr:first-child td:last-child {
+//     border-top-right-radius: 10px;
+// }
