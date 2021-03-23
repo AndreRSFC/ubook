@@ -9,12 +9,19 @@ export type ContactType = {
   email: string;
   phone: string;
   color: string;
+  id: string;
 };
 
 type PropsType = {
   contacts: ContactType[];
-  onEditClick: () => void;
-  onDeleteClick: () => void;
+  onEditClick: (
+    name: string,
+    email: string,
+    phone: string,
+    id: string,
+    color: string
+  ) => void;
+  onDeleteClick: (id: string) => void;
 };
 
 const FilledList = ({ contacts, onEditClick, onDeleteClick }: PropsType) => {
@@ -52,14 +59,24 @@ const FilledList = ({ contacts, onEditClick, onDeleteClick }: PropsType) => {
             <td className={styles.table_bodyLineItem}>{contact.email}</td>
             <td className={styles.table_bodyLineItem}>{contact.phone}</td>
             <td className={styles.table_icons}>
-              <button onClick={onEditClick}>
+              <button
+                onClick={() =>
+                  onEditClick(
+                    contact.name,
+                    contact.email,
+                    contact.phone,
+                    contact.id,
+                    contact.color
+                  )
+                }
+              >
                 <EditIcon />
               </button>
             </td>
             <td
               className={`${styles.table_bodyLineItem} ${styles.table_icons} ${styles.table_icons__last}`}
             >
-              <button onClick={onDeleteClick}>
+              <button onClick={() => onDeleteClick(contact.id)}>
                 <DeleteIcon />
               </button>
             </td>

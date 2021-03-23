@@ -9,7 +9,7 @@ type PropsType = {
   isError?: boolean;
   errorMessage?: string;
   value?: string | number;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: string) => void;
   onBlur?: () => void;
   className?: string;
   maxlength?: number;
@@ -46,7 +46,7 @@ const FormInput = ({
       <input
         value={value}
         onChange={(e) => {
-          onChange && onChange(e);
+          onChange && onChange(e.target.value);
         }}
         id={id}
         placeholder={placeholder}

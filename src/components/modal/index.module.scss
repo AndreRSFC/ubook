@@ -1,11 +1,5 @@
 @import "../../sass/variables.scss";
 
-.modal {
-  background-color: $color-white;
-  width: 432px;
-  border-radius: 16px;
-}
-
 .modal_container {
   background-color: rgba($color-black, 0.4);
   position: absolute;
@@ -16,43 +10,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.modal_header {
-  padding: 16px 16px 12px 16px;
-  border-bottom: 2px solid $color-gray-4;
-}
-
-.modal_title {
-  font-size: 16px;
-  font-family: $font-roboto;
-  font-weight: $font-regular;
-  color: $color-gray-6;
-}
-
-.modal_footer {
-  border-top: 2px solid $color-gray-4;
-  display: flex;
-  padding: 16px;
-  justify-content: flex-end;
-}
-
-.modal_content {
-  padding: 20px 24px 22px;
-}
-
-.modal_buttonCancel,
-.modal_buttonSave {
-  padding: 16px;
-}
-
-.modal_buttonCancel {
-  background-color: $color-white;
-  color: $color-pink-2;
-  box-shadow: initial;
-}
-
-.modal_buttonSave {
-  background-color: $color-pink-2;
-  color: $color-white;
 }

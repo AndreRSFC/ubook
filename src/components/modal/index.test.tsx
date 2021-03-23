@@ -18,8 +18,11 @@ const AppClick = () => {
         data-testid="modal-root"
         onClick={() =>
           handleModal({
-            title: "Criar novo contato",
-            element: <span>TESTE</span>,
+            element: (
+              <div>
+                <h1>Criar novo contato</h1> <span>TESTE</span>
+              </div>
+            ),
           })
         }
       />

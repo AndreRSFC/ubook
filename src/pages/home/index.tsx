@@ -1,94 +1,59 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import styles from "./index.module.scss";
 
 import Header from "../../components/header";
 import EmptyList from "../../components/list/emptyList";
 import { ModalContext } from "../../components/modal/modalContext";
-import FormInput from "../../components/formInput";
 import FilledList from "../../components/list/filledList";
 
-const Home = () => {
-  const { handleModal } = useContext(ModalContext);
+import { ContactsContextValue } from "../../contexts/contactContext";
+import FormModalShape from "../../components/modal/shapes/formModalShape";
+import DeleteModal from "../../components/modal/shapes/deleteModal";
 
-  const aa = [
-    {
-      name: "Bianca",
-      email: "bianca@mail.com",
-      phone: "(11) 98432-9263",
-      color: "#dfe",
-    },
-    {
-      name: "Alana",
-      email: "alana@mail.com",
-      phone: "(11) 98432-9263",
-      color: "#231",
-    },
-  ];
+const Home = () => {
+  const [haveContact, setHaveContact] = useState<boolean>(false);
+  const { handleModal } = useContext(ModalContext);
+  const { contacts } = ContactsContextValue();
+
+  useEffect(() => {
+    setHaveContact(contacts && contacts.length > 0);
+  }, [contacts]);
 
   return (
     <div className={styles.home}>
-      <Header emptyList={!aa} />
-      {!aa ? (
+      <Header emptyList={!haveContact} />
+      {!haveContact ? (
         <EmptyList
           onClick={() =>
             handleModal({
-              title: "Criar novo contato",
-              element: (
-                <React.Fragment>
-                  <FormInput
-                    className={styles.home_inputSpace}
-                    placeholder=""
-                    label="Nome"
-                    id="name"
-                  />
-                  <FormInput
-                    className={styles.home_inputSpace}
-                    placeholder=""
-                    label="E-mail"
-                    id="email"
-                  />
-                  <FormInput placeholder="" label="Telefone" id="telefone" />
-                </React.Fragment>
-              ),
+              element: <FormModalShape title="Adicionar contato" />,
             })
           }
         />
       ) : (
         <FilledList
-          onEditClick={() => {
+          onEditClick={(name, email, phone, id, color) =>
             handleModal({
-              title: "Editar contato",
               element: (
-                <React.Fragment>
-                  <FormInput
-                    className={styles.home_inputSpace}
-                    placeholder=""
-                    label="Nome"
-                    id="name"
-                  />
-                  <FormInput
-                    className={styles.home_inputSpace}
-                    placeholder=""
-                    label="E-mail"
-                    id="email"
-                  />
-                  <FormInput placeholder="" label="Telefone" id="telefone" />
-                </React.Fragment>
+                <FormModalShape
+                  title="Editar contato"
+                  initialName={name}
+                  initialEmail={email}
+                  initialPhone={phone}
+                  initialId={id}
+                  initialColor={color}
+                  edit={true}
+                />
               ),
+            })
+          }
+          onDeleteClick={(id) => {
+            handleModal({
+              element: <DeleteModal id={id}/>,
             });
           }}
-          onDeleteClick={() => {
-            handleModal({
-              title: "Excluir contato",
-              element: (
-                <React.Fragment>
-                  <span>Deseja realmente excluir o contato?</span>
-                </React.Fragment>
-              ),
-            });
-          }}
-          contacts={aa}
+          contacts={contacts}
         />
       )}
     </div>

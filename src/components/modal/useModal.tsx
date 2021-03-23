@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-type PropsType = {
-  title: string;
+export type ContextContent = {
   element: Element;
 };
 
 export default () => {
   const [modal, setModal] = useState(false);
-  const [modalContent, setModalContent] = useState<PropsType>();
+  const [modalContent, setModalContent] = useState<ContextContent>();
 
-  const handleModal = (content: PropsType) => {
+  const handleModal = (content: ContextContent) => {
     setModal(!modal);
     if (content) {
       setModalContent(content);

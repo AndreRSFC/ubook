@@ -1,11 +1,11 @@
-import React, { createContext } from "react";
+import { createContext } from "react";
 import useModal from "./useModal";
 import Modal from ".";
 
 const ModalContext = createContext<any>({});
 
-let ModalProvider = ({ children }: any) => {
-  let { modal, handleModal, modalContent } = useModal();
+const ModalProvider = ({ children }: any) => {
+  const { modal, handleModal, modalContent } = useModal();
   return (
     <ModalContext.Provider value={{ modal, handleModal, modalContent }}>
       <Modal />
