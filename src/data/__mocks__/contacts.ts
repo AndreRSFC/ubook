@@ -9,6 +9,15 @@ export const OneContactMock: ContactType[] = [
   },
 ];
 
+export const testingaaaaaaa: ContactType[] = [
+  {
+    name: "Alana",
+    email: "alana@mail.com",
+    phone: "(11) 98432-9263",
+    color: "#231",
+  },
+];
+
 export const ContactsMock: ContactType[] = [
   {
     name: "Bianca",
